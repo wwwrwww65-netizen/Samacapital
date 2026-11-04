@@ -48,9 +48,13 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, currentView, onNavigate })
                 src={IMAGES.logo} 
                 alt="Sama Capital Logo" 
                 className="w-full h-full object-cover rounded-md"
+                loading="eager"
+                decoding="sync"
                 onError={(e) => {
-                  // Fallback to inline SVG if image blocked
-                  (e.target as HTMLElement).style.display = 'none';
+                  const target = e.target as HTMLElement;
+                  target.style.display = 'none';
+                  const fallback = target.nextElementSibling;
+                  if (fallback) fallback.classList.remove('hidden');
                 }}
               />
               <div className="hidden text-white font-bold text-xs items-center justify-center">

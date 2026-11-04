@@ -41,6 +41,8 @@ export const AboutView: React.FC<AboutViewProps> = ({ lang, onNavigate, settings
             src={IMAGES.hero}
             alt="Sama Capital Operations"
             className="w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#071B33] via-[#071B33]/40 to-transparent flex items-end p-6 sm:p-8">
             <div className="text-white">

@@ -105,6 +105,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     src={service.image}
                     alt={title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#071B33]/90 via-[#071B33]/30 to-transparent" />
                   

@@ -1,5 +1,12 @@
 import { CompanySettings, ServiceItem } from '../types';
 
+import heroImg from '../assets/images/hero_sama_logistics_1793754450760.jpg';
+import oceanFreightImg from '../assets/images/service_ocean_freight_1793754466232.jpg';
+import airFreightImg from '../assets/images/service_air_freight_1793754453249.jpg';
+import customsImg from '../assets/images/service_customs_clearance_1793754453600.jpg';
+import logoImg from '../assets/images/sama_capital_brand_logo_1793754451811.jpg';
+import portAerialImg from '../assets/images/modern_cargo_port_aerial_1793755336369.jpg';
+
 export const INITIAL_COMPANY_SETTINGS: CompanySettings = {
   nameAr: 'سما كابيتال',
   nameEn: 'SAMA CAPITAL',
@@ -19,12 +26,12 @@ export const INITIAL_COMPANY_SETTINGS: CompanySettings = {
 };
 
 export const IMAGES = {
-  hero: '/src/assets/images/hero_sama_logistics_1793754450760.jpg',
-  oceanFreight: '/src/assets/images/service_ocean_freight_1793754466232.jpg',
-  airFreight: '/src/assets/images/service_air_freight_1793754453249.jpg',
-  customs: '/src/assets/images/service_customs_clearance_1793754453600.jpg',
-  logo: '/src/assets/images/sama_capital_brand_logo_1793754451811.jpg',
-  portAerial: '/src/assets/images/modern_cargo_port_aerial_1793755336369.jpg',
+  hero: heroImg,
+  oceanFreight: oceanFreightImg,
+  airFreight: airFreightImg,
+  customs: customsImg,
+  logo: logoImg,
+  portAerial: portAerialImg,
 };
 
 export interface ShippingCorridor {

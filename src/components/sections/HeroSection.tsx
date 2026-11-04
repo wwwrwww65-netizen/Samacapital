@@ -64,6 +64,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           src={IMAGES.portAerial}
           alt="Modern International Container Seaport"
           className="w-full h-full object-cover object-center opacity-25 mix-blend-luminosity scale-105"
+          loading="eager"
+          decoding="sync"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#071B33] via-[#071B33]/85 to-[#071B33]/90" />
         
