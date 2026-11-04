@@ -52,11 +52,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   };
 
   return (
-    <section id="services" className="py-16 sm:py-20 bg-slate-50">
+    <section id="services" className="py-16 sm:py-24 bg-[#EAF2F8] border-y border-[#E1E9F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {showTitle && (
           <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-xs font-bold text-[#0876C9] uppercase tracking-wider block mb-2">
+              {lang === 'ar' ? 'سما كابيتال — حلول شحن شاملة' : 'Sama Capital — End-to-End Solutions'}
+            </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B3158] tracking-tight">
               {t.sectionTitle}
             </h2>
@@ -66,17 +69,17 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
           </div>
         )}
 
-        {/* Category Filters (Modern Floating Segmented Pill - High Touch Mobile) */}
+        {/* Category Filters (Clean Segmented Control on crisp border) */}
         <div className="flex items-center justify-center mb-12">
-          <div className="inline-flex items-center gap-1.5 p-1.5 bg-slate-200/70 backdrop-blur-md rounded-2xl sm:rounded-full overflow-x-auto max-w-full">
+          <div className="inline-flex items-center gap-1.5 p-1.5 bg-white/90 rounded-2xl border border-[#E1E9F0] shadow-xs overflow-x-auto max-w-full">
             {categories.map((cat) => (
               <button
                 key={cat.key}
                 onClick={() => setActiveCategory(cat.key)}
-                className={`px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold rounded-xl sm:rounded-full transition-all cursor-pointer whitespace-nowrap ${
+                className={`px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all cursor-pointer whitespace-nowrap ${
                   activeCategory === cat.key
-                    ? 'bg-[#0876C9] text-white shadow-md shadow-sky-500/25 scale-[1.02]'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
+                    ? 'bg-[#0B3158] text-white shadow-xs'
+                    : 'text-slate-600 hover:text-[#0B3158] hover:bg-slate-100/70'
                 }`}
               >
                 {cat.label}
@@ -85,7 +88,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
           </div>
         </div>
 
-        {/* Services Grid (Modern Asymmetric Bento Look) */}
+        {/* Services Grid (Elevated White Cards popping on #EAF2F8) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredServices.map((service) => {
             const title = lang === 'ar' ? service.titleAr : service.titleEn;
@@ -94,7 +97,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
             return (
               <div 
                 key={service.id}
-                className="bg-white rounded-3xl border border-slate-200/90 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col overflow-hidden group"
+                className="bg-white rounded-3xl border border-[#E1E9F0] shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-[#0876C9]/50 transition-all duration-300 flex flex-col overflow-hidden group"
               >
                 {/* Service Card Image with High-End Overlay */}
                 <div className="relative h-52 overflow-hidden bg-slate-900">
@@ -103,9 +106,9 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     alt={title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#071B33]/90 via-[#071B33]/30 to-transparent" />
                   
-                  <div className="absolute top-4 start-4 p-2.5 rounded-2xl bg-white/95 backdrop-blur-md shadow-md">
+                  <div className="absolute top-4 start-4 p-2.5 rounded-2xl bg-white/95 backdrop-blur-md shadow-md border border-slate-100">
                     {getServiceIcon(service.category)}
                   </div>
 
@@ -126,7 +129,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   </p>
 
                   {/* Actions */}
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                  <div className="pt-4 border-t border-[#E1E9F0] flex items-center justify-between gap-3">
                     <button
                       onClick={() => setSelectedServiceModal(service)}
                       className="text-xs font-bold text-[#0876C9] hover:text-[#0B3158] transition-colors flex items-center gap-1 cursor-pointer py-1.5"
@@ -152,8 +155,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
       {/* Service Detailed Modal */}
       {selectedServiceModal && (
-        <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl border border-[#E1E9F0] max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             
             <button
               onClick={() => setSelectedServiceModal(null)}
@@ -163,8 +166,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2.5 rounded-xl bg-sky-50">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="p-3 rounded-2xl bg-[#F1F6FA] border border-[#E1E9F0]">
                 {getServiceIcon(selectedServiceModal.category)}
               </div>
               <div>
@@ -178,17 +181,17 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
             </div>
 
             <div className="space-y-5 text-sm text-slate-700">
-              <p className="leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-100">
+              <p className="leading-relaxed bg-[#F1F6FA] p-4 rounded-2xl border border-[#E1E9F0] text-slate-700">
                 {lang === 'ar' ? selectedServiceModal.fullDescAr : selectedServiceModal.fullDescEn}
               </p>
 
               {/* Key Features */}
-              <div>
-                <h4 className="font-bold text-[#0B3158] text-xs uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <div className="bg-[#F1F6FA]/60 p-4 rounded-2xl border border-[#E1E9F0]">
+                <h4 className="font-bold text-[#0B3158] text-xs uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
                   <CheckCircle className="w-4 h-4 text-emerald-600" />
                   <span>{lang === 'ar' ? 'أبرز مميزات الخدمة ونطاقها:' : 'Service Capabilities & Scope:'}</span>
                 </h4>
-                <ul className="space-y-1.5 text-xs text-slate-600 ps-5 list-disc">
+                <ul className="space-y-1.5 text-xs text-slate-700 ps-5 list-disc">
                   {(lang === 'ar' ? selectedServiceModal.featuresAr : selectedServiceModal.featuresEn).map((f, i) => (
                     <li key={i}>{f}</li>
                   ))}
@@ -196,12 +199,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               </div>
 
               {/* Required Documents / Input */}
-              <div>
-                <h4 className="font-bold text-[#0B3158] text-xs uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <div className="bg-[#F1F6FA]/60 p-4 rounded-2xl border border-[#E1E9F0]">
+                <h4 className="font-bold text-[#0B3158] text-xs uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
                   <FileText className="w-4 h-4 text-[#F39A16]" />
                   <span>{lang === 'ar' ? 'البيانات أو الوثائق المطلوبة لتجهيز الطلب:' : 'Required Information & Documents:'}</span>
                 </h4>
-                <ul className="space-y-1.5 text-xs text-slate-600 ps-5 list-disc">
+                <ul className="space-y-1.5 text-xs text-slate-700 ps-5 list-disc">
                   {(lang === 'ar' ? selectedServiceModal.requirementsAr : selectedServiceModal.requirementsEn).map((req, i) => (
                     <li key={i}>{req}</li>
                   ))}
@@ -210,7 +213,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
             </div>
 
             {/* Modal Footer CTA */}
-            <div className="mt-8 pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
+            <div className="mt-8 pt-4 border-t border-[#E1E9F0] flex flex-wrap items-center justify-between gap-3">
               <span className="text-xs text-slate-500">
                 {lang === 'ar' ? 'يتم تحديد التكلفة النهائية بناءً على الأوزان ومسار الشحن' : 'Final rate calculated based on exact cargo volume and routing'}
               </span>
@@ -221,7 +224,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   setSelectedServiceModal(null);
                   onSelectServiceForQuote(serviceId);
                 }}
-                className="px-5 py-2.5 bg-[#0876C9] hover:bg-[#0B3158] text-white text-xs font-bold rounded-xl shadow-xs transition-colors cursor-pointer"
+                className="px-5 py-2.5 bg-gradient-to-r from-[#0876C9] to-[#0B3158] hover:from-sky-600 hover:to-blue-900 text-white text-xs font-bold rounded-xl shadow-xs transition-all cursor-pointer"
               >
                 {t.requestService}
               </button>

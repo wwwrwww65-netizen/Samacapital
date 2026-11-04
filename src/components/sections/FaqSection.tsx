@@ -23,12 +23,12 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onNavigate, whatsa
   const isRtl = lang === 'ar';
 
   return (
-    <section id="faq" className="py-16 sm:py-20 bg-slate-50 border-t border-slate-200">
+    <section id="faq" className="py-16 sm:py-20 bg-[#EAF2F8] border-t border-[#E1E9F0]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex p-2.5 rounded-xl bg-sky-100 text-[#0876C9] mb-3">
+          <div className="inline-flex p-2.5 rounded-2xl bg-white border border-[#E1E9F0] text-[#0876C9] shadow-2xs mb-3">
             <HelpCircle className="w-5 h-5" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B3158] tracking-tight">
@@ -48,7 +48,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onNavigate, whatsa
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder={lang === 'ar' ? 'ابحث في الأسئلة الشائعة...' : 'Search questions...'}
-              className="w-full ps-10 pe-4 py-2.5 rounded-xl border border-slate-300 bg-white text-xs sm:text-sm focus:outline-hidden focus:ring-2 focus:ring-[#0876C9]"
+              className="w-full ps-10 pe-4 py-3 rounded-2xl border border-[#E1E9F0] bg-white text-xs sm:text-sm shadow-xs focus:outline-hidden focus:ring-2 focus:ring-[#0876C9] focus:border-[#0876C9]"
             />
           </div>
         </div>
@@ -67,7 +67,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onNavigate, whatsa
 
             return (
               <div key={catIdx} className="space-y-3">
-                <h3 className="text-sm font-bold text-[#0876C9] uppercase tracking-wider px-1">
+                <h3 className="text-xs font-bold text-[#0876C9] uppercase tracking-wider px-1">
                   {lang === 'ar' ? category.categoryAr : category.categoryEn}
                 </h3>
 
@@ -79,11 +79,11 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onNavigate, whatsa
                     return (
                       <div
                         key={qIdx}
-                        className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-2xs transition-all"
+                        className="bg-white rounded-2xl border border-[#E1E9F0] overflow-hidden shadow-xs hover:border-[#0876C9]/40 transition-all"
                       >
                         <button
                           onClick={() => toggleItem(itemKey)}
-                          className="w-full text-start p-4 sm:p-5 flex items-center justify-between gap-4 font-semibold text-xs sm:text-sm text-[#0B3158] hover:text-[#0876C9] transition-colors focus:outline-hidden"
+                          className="w-full text-start p-4 sm:p-5 flex items-center justify-between gap-4 font-bold text-xs sm:text-sm text-[#0B3158] hover:text-[#0876C9] transition-colors focus:outline-hidden cursor-pointer"
                           aria-expanded={isOpen}
                         >
                           <span>{lang === 'ar' ? item.qAr : item.qEn}</span>
@@ -95,7 +95,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onNavigate, whatsa
                         </button>
 
                         {isOpen && (
-                          <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50">
+                          <div className="px-5 pb-5 pt-0 text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-[#E1E9F0] bg-[#F1F6FA]">
                             <p className="pt-3">
                               {lang === 'ar' ? item.aAr : item.aEn}
                             </p>
@@ -111,7 +111,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onNavigate, whatsa
         </div>
 
         {/* Didn't find answer? CTA */}
-        <div className="mt-12 p-6 rounded-2xl bg-white border border-slate-200 text-center flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+        <div className="mt-12 p-6 sm:p-7 rounded-3xl bg-white border border-[#E1E9F0] text-center flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
           <div className="text-start">
             <h4 className="text-sm font-bold text-[#0B3158]">
               {lang === 'ar' ? 'لديك استفسار خاص بنوع بضاعتك أو مسار شحنك؟' : 'Have a specialized inquiry regarding your cargo?'}
@@ -124,7 +124,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onNavigate, whatsa
           <div className="flex items-center gap-3 shrink-0">
             <button
               onClick={() => onNavigate('contact')}
-              className="px-4 py-2 bg-[#0B3158] hover:bg-[#0876C9] text-white text-xs font-semibold rounded-lg transition-colors cursor-pointer"
+              className="px-5 py-2.5 bg-[#0B3158] hover:bg-[#0876C9] text-white text-xs font-bold rounded-xl transition-all shadow-xs cursor-pointer active:scale-95"
             >
               {lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}
             </button>
@@ -132,7 +132,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onNavigate, whatsa
               href={`https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 transition-colors"
+              className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all shadow-xs cursor-pointer active:scale-95"
             >
               <MessageCircle className="w-3.5 h-3.5" />
               <span>{lang === 'ar' ? 'واتساب' : 'WhatsApp'}</span>

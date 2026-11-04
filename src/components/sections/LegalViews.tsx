@@ -14,12 +14,12 @@ export const AboutView: React.FC<AboutViewProps> = ({ lang, onNavigate, settings
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight;
 
   return (
-    <div className="py-16 bg-white">
+    <div className="py-16 bg-[#F4F7FA]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-[#0876C9] text-xs font-bold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E1E9F0] text-[#0876C9] text-xs font-bold shadow-2xs">
             <Building className="w-3.5 h-3.5" />
             <span>{lang === 'ar' ? 'نبذة عن سما كابيتال' : 'About Sama Capital'}</span>
           </div>
@@ -36,18 +36,18 @@ export const AboutView: React.FC<AboutViewProps> = ({ lang, onNavigate, settings
         </div>
 
         {/* Visual Showcase */}
-        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 h-64 sm:h-80">
+        <div className="relative rounded-3xl overflow-hidden shadow-xl border border-[#E1E9F0] h-64 sm:h-80">
           <img
             src={IMAGES.hero}
             alt="Sama Capital Operations"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B3158] via-[#0B3158]/40 to-transparent flex items-end p-6 sm:p-8">
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071B33] via-[#071B33]/40 to-transparent flex items-end p-6 sm:p-8">
             <div className="text-white">
-              <span className="text-xs font-bold text-[#F39A16] uppercase tracking-wider block">
+              <span className="text-xs font-bold text-[#F39A16] uppercase tracking-wider block mb-1">
                 {lang === 'ar' ? 'حضور ميداني في اليمن والصين' : 'Active Operational Presence in Yemen & China'}
               </span>
-              <p className="text-sm sm:text-base font-semibold max-w-xl mt-1">
+              <p className="text-sm sm:text-base font-semibold max-w-xl">
                 {lang === 'ar' 
                   ? 'مكتب إدارة رئيسي في صنعاء (دار سلم) ومكتب تنسيق واستلام في الصين لخدمة كافة المحافظات اليمنية.' 
                   : 'Sana\'a headquarters (Dar Salm) and dedicated China desk servicing all Yemeni governorates.'}
@@ -58,8 +58,8 @@ export const AboutView: React.FC<AboutViewProps> = ({ lang, onNavigate, settings
 
         {/* Pillars / Values */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-            <h3 className="text-base font-bold text-[#0B3158] mb-2">
+          <div className="p-7 rounded-3xl bg-white border border-[#E1E9F0] shadow-sm hover:shadow-lg transition-all">
+            <h3 className="text-base font-bold text-[#0B3158] mb-2.5">
               {lang === 'ar' ? 'رؤيتنا' : 'Our Vision'}
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -69,8 +69,8 @@ export const AboutView: React.FC<AboutViewProps> = ({ lang, onNavigate, settings
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-            <h3 className="text-base font-bold text-[#0B3158] mb-2">
+          <div className="p-7 rounded-3xl bg-white border border-[#E1E9F0] shadow-sm hover:shadow-lg transition-all">
+            <h3 className="text-base font-bold text-[#0B3158] mb-2.5">
               {lang === 'ar' ? 'رسالتنا' : 'Our Mission'}
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -80,8 +80,8 @@ export const AboutView: React.FC<AboutViewProps> = ({ lang, onNavigate, settings
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
-            <h3 className="text-base font-bold text-[#0B3158] mb-2">
+          <div className="p-7 rounded-3xl bg-white border border-[#E1E9F0] shadow-sm hover:shadow-lg transition-all">
+            <h3 className="text-base font-bold text-[#0B3158] mb-2.5">
               {lang === 'ar' ? 'قيم العمل' : 'Core Values'}
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -93,18 +93,18 @@ export const AboutView: React.FC<AboutViewProps> = ({ lang, onNavigate, settings
         </div>
 
         {/* Conversion Banner */}
-        <div className="text-center bg-[#0B3158] text-white p-8 rounded-2xl">
-          <h3 className="text-xl font-bold mb-2">
+        <div className="text-center bg-gradient-to-r from-[#071B33] via-[#0B3158] to-[#0876C9] text-white p-8 sm:p-10 rounded-3xl shadow-xl border border-sky-900/40">
+          <h3 className="text-xl sm:text-2xl font-bold mb-2">
             {lang === 'ar' ? 'هل تود مناقشة خطة استيراد أو شحنة جديدة؟' : 'Ready to Plan Your Next Shipment or Import Order?'}
           </h3>
-          <p className="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto mb-6">
+          <p className="text-xs sm:text-sm text-slate-200 max-w-lg mx-auto mb-6 leading-relaxed">
             {lang === 'ar' 
               ? 'تواصل مباشرة مع فريق العمليات في صنعاء أو اطلب عرض سعر تفصيلي.' 
               : 'Contact our Sana\'a operations desk or request an itemized rate card.'}
           </p>
           <button
             onClick={() => onNavigate('quote')}
-            className="px-6 py-3 bg-[#0876C9] hover:bg-sky-500 text-white font-bold text-xs sm:text-sm rounded-xl transition-colors cursor-pointer"
+            className="px-6 py-3.5 bg-gradient-to-r from-[#F39A16] to-amber-600 hover:from-amber-500 hover:to-amber-600 text-slate-950 font-bold text-xs sm:text-sm rounded-xl transition-all shadow-md cursor-pointer active:scale-95"
           >
             {lang === 'ar' ? 'اطلب عرض سعر الآن' : 'Request a Quote Now'}
           </button>
@@ -116,9 +116,9 @@ export const AboutView: React.FC<AboutViewProps> = ({ lang, onNavigate, settings
 };
 
 export const PrivacyPolicyView: React.FC<{ lang: Language }> = ({ lang }) => (
-  <div className="py-16 bg-white">
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      <div className="border-b border-slate-200 pb-6">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="bg-white rounded-3xl border border-[#E1E9F0] p-8 sm:p-12 shadow-sm space-y-8">
+      <div className="border-b border-[#E1E9F0] pb-6">
         <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0B3158]">
           {lang === 'ar' ? 'سياسة الخصوصية — شركة سما كابيتال' : 'Privacy Policy — SAMA CAPITAL'}
         </h1>
@@ -128,7 +128,7 @@ export const PrivacyPolicyView: React.FC<{ lang: Language }> = ({ lang }) => (
       </div>
 
       <div className="prose text-xs sm:text-sm text-slate-700 space-y-6 leading-relaxed">
-        <section>
+        <section className="bg-[#F1F6FA] p-5 rounded-2xl border border-[#E1E9F0]">
           <h2 className="text-base font-bold text-[#0B3158] mb-2">
             {lang === 'ar' ? '1. التزامنا بحماية بيانات عملائنا' : '1. Our Commitment to Data Privacy'}
           </h2>
@@ -139,18 +139,18 @@ export const PrivacyPolicyView: React.FC<{ lang: Language }> = ({ lang }) => (
           </p>
         </section>
 
-        <section>
+        <section className="bg-[#F1F6FA] p-5 rounded-2xl border border-[#E1E9F0]">
           <h2 className="text-base font-bold text-[#0B3158] mb-2">
             {lang === 'ar' ? '2. البيانات التي نقوم بجمعها' : '2. Data We Collect'}
           </h2>
-          <ul className="list-disc ps-5 space-y-1">
+          <ul className="list-disc ps-5 space-y-1.5 text-slate-700">
             <li>{lang === 'ar' ? 'الاسم، اسم المؤسسة أو المتجر، ورقم الهاتف، والبريد الإلكتروني.' : 'Full name, company/store name, contact phone number, and email address.'}</li>
             <li>{lang === 'ar' ? 'بيانات الشحنة: نوع البضاعة، الأوزان، الأحجام التقريبية، وموانئ الإرسال والاستلام.' : 'Consignment data: nature of goods, approximate weight and volume, origin and destination ports.'}</li>
             <li>{lang === 'ar' ? 'الوثائق المرفقة (فواتير، قوائم تعبئة) الخاصة بالتخليص والشحن.' : 'Uploaded documents (invoices, packing lists) strictly utilized for customs and transit compliance.'}</li>
           </ul>
         </section>
 
-        <section>
+        <section className="bg-[#F1F6FA] p-5 rounded-2xl border border-[#E1E9F0]">
           <h2 className="text-base font-bold text-[#0B3158] mb-2">
             {lang === 'ar' ? '3. عدم مشاركة البيانات مع أطراف ثالثة' : '3. Non-Disclosure to Third Parties'}
           </h2>
@@ -161,7 +161,7 @@ export const PrivacyPolicyView: React.FC<{ lang: Language }> = ({ lang }) => (
           </p>
         </section>
 
-        <section>
+        <section className="bg-[#F1F6FA] p-5 rounded-2xl border border-[#E1E9F0]">
           <h2 className="text-base font-bold text-[#0B3158] mb-2">
             {lang === 'ar' ? '4. التواصل والاستفسار' : '4. Inquiries & Contact'}
           </h2>
@@ -177,9 +177,9 @@ export const PrivacyPolicyView: React.FC<{ lang: Language }> = ({ lang }) => (
 );
 
 export const TermsOfServiceView: React.FC<{ lang: Language }> = ({ lang }) => (
-  <div className="py-16 bg-white">
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      <div className="border-b border-slate-200 pb-6">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="bg-white rounded-3xl border border-[#E1E9F0] p-8 sm:p-12 shadow-sm space-y-8">
+      <div className="border-b border-[#E1E9F0] pb-6">
         <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0B3158]">
           {lang === 'ar' ? 'الشروط والأحكام — شركة سما كابيتال' : 'Terms & Conditions — SAMA CAPITAL'}
         </h1>
@@ -189,7 +189,7 @@ export const TermsOfServiceView: React.FC<{ lang: Language }> = ({ lang }) => (
       </div>
 
       <div className="prose text-xs sm:text-sm text-slate-700 space-y-6 leading-relaxed">
-        <section>
+        <section className="bg-[#F1F6FA] p-5 rounded-2xl border border-[#E1E9F0]">
           <h2 className="text-base font-bold text-[#0B3158] mb-2">
             {lang === 'ar' ? '1. شروط تقديم طلبات عروض الأسعار' : '1. Quotation Submission Terms'}
           </h2>
@@ -200,7 +200,7 @@ export const TermsOfServiceView: React.FC<{ lang: Language }> = ({ lang }) => (
           </p>
         </section>
 
-        <section>
+        <section className="bg-[#F1F6FA] p-5 rounded-2xl border border-[#E1E9F0]">
           <h2 className="text-base font-bold text-[#0B3158] mb-2">
             {lang === 'ar' ? '2. صحة بيانات ومواصفات البضاعة' : '2. Accuracy of Cargo Declarations'}
           </h2>
@@ -211,7 +211,7 @@ export const TermsOfServiceView: React.FC<{ lang: Language }> = ({ lang }) => (
           </p>
         </section>
 
-        <section>
+        <section className="bg-[#F1F6FA] p-5 rounded-2xl border border-[#E1E9F0]">
           <h2 className="text-base font-bold text-[#0B3158] mb-2">
             {lang === 'ar' ? '3. إجراءات ورسوم التخليص الجمركي' : '3. Customs Clearance & Tariffs'}
           </h2>

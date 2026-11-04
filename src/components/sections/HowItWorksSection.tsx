@@ -74,11 +74,14 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ lang, onNa
   ];
 
   return (
-    <section id="how-it-works" className="py-16 sm:py-20 bg-white overflow-hidden">
+    <section id="how-it-works" className="py-16 sm:py-20 bg-white border-y border-[#E1E9F0] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-xs font-bold text-[#0876C9] uppercase tracking-wider block mb-2">
+            {lang === 'ar' ? 'رحلة الشحنة خطوة بخطوة' : 'Step-by-Step Freight Journey'}
+          </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B3158] tracking-tight">
             {t.sectionTitle}
           </h2>
@@ -92,29 +95,29 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ lang, onNa
           {steps.map((step, idx) => (
             <div 
               key={idx} 
-              className="bg-slate-50 border border-slate-200/80 rounded-xl p-5 flex flex-col justify-between relative group hover:border-[#0876C9] transition-colors"
+              className="bg-[#F1F6FA] border border-[#E1E9F0] rounded-3xl p-6 shadow-xs hover:bg-white hover:shadow-xl hover:-translate-y-1 hover:border-[#0876C9]/50 transition-all duration-300 flex flex-col justify-between relative group"
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl font-black text-[#0B3158] font-mono">
+                <div className="flex items-center justify-between mb-5">
+                  <span className="text-3xl font-black text-[#0876C9] font-mono tabular-nums">
                     {step.num}
                   </span>
-                  <div className="p-2 rounded-lg bg-white shadow-2xs">
+                  <div className="p-2.5 rounded-xl bg-white text-[#0876C9] border border-[#E1E9F0] shadow-2xs group-hover:scale-105 transition-transform">
                     {step.icon}
                   </div>
                 </div>
 
-                <h3 className="text-sm font-bold text-[#0B3158] mb-2 leading-snug">
+                <h3 className="text-sm font-extrabold text-[#0B3158] mb-2 leading-snug">
                   {step.title}
                 </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
                   {step.desc}
                 </p>
               </div>
 
               {idx < steps.length - 1 && (
-                <div className="hidden lg:block absolute -top-2.5 rtl:-left-3.5 rtl:right-auto left-auto -right-3.5 z-10 text-slate-300">
-                  <ArrowIcon className="w-5 h-5 text-slate-400" />
+                <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 rtl:-left-3.5 rtl:right-auto left-auto -right-3.5 z-10 text-[#0876C9] bg-white p-1 rounded-full shadow-xs border border-[#E1E9F0]">
+                  <ArrowIcon className="w-4 h-4" />
                 </div>
               )}
             </div>
@@ -122,7 +125,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ lang, onNa
         </div>
 
         {/* Mandatory Documentation Checklist Drawer / Box */}
-        <div className="mt-16 bg-[#0B3158] text-white rounded-2xl p-6 sm:p-8 shadow-xl">
+        <div className="mt-16 bg-gradient-to-r from-[#071B33] via-[#0B3158] to-[#0876C9] text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-sky-900/40">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-5 space-y-3">
@@ -141,7 +144,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ lang, onNa
               <div className="pt-2">
                 <button
                   onClick={() => onNavigate('quote')}
-                  className="px-5 py-2.5 bg-[#0876C9] hover:bg-sky-600 text-white text-xs font-bold rounded-lg transition-colors cursor-pointer"
+                  className="px-5 py-2.5 bg-gradient-to-r from-[#F39A16] to-amber-600 hover:from-amber-500 hover:to-amber-600 text-slate-950 text-xs font-bold rounded-xl transition-all shadow-md cursor-pointer active:scale-95"
                 >
                   {lang === 'ar' ? 'اطلب استشارة جمركية لشحنتك' : 'Request Customs Consultation'}
                 </button>
@@ -150,12 +153,12 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ lang, onNa
 
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {requiredDocuments.map((doc, idx) => (
-                <div key={idx} className="bg-white/10 backdrop-blur-xs border border-white/10 rounded-xl p-4">
+                <div key={idx} className="bg-white/10 backdrop-blur-xs border border-white/15 rounded-2xl p-4 hover:bg-white/15 transition-colors">
                   <h4 className="text-xs font-bold text-white mb-1.5 flex items-center gap-1.5">
                     <FileCheck className="w-4 h-4 text-[#F39A16] shrink-0" />
                     <span>{lang === 'ar' ? doc.titleAr : doc.titleEn}</span>
                   </h4>
-                  <p className="text-[11px] text-slate-300 leading-relaxed">
+                  <p className="text-[11px] text-slate-200 leading-relaxed">
                     {lang === 'ar' ? doc.descAr : doc.descEn}
                   </p>
                 </div>

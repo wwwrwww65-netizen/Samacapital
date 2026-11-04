@@ -61,11 +61,14 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
   };
 
   return (
-    <section id="tracking" className="py-16 sm:py-20 bg-white">
+    <section id="tracking" className="py-16 sm:py-20 bg-[#F4F7FA] border-t border-[#E1E9F0]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
+          <span className="text-xs font-bold text-[#0876C9] uppercase tracking-wider block mb-2">
+            {lang === 'ar' ? 'المتابعة الحية للشحنات' : 'Live Shipment Visibility'}
+          </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B3158] tracking-tight">
             {t.title}
           </h2>
@@ -75,7 +78,7 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
         </div>
 
         {/* Search Card */}
-        <div className="bg-slate-50 border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-sm mb-8">
+        <div className="bg-white border border-[#E1E9F0] rounded-3xl p-6 sm:p-8 shadow-sm mb-8">
           <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3">
             <div className="relative flex-1">
               <Search className="w-5 h-5 text-slate-400 absolute top-1/2 -translate-y-1/2 start-4" />
@@ -84,14 +87,14 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={t.searchPlaceholder}
-                className="w-full ps-12 pe-4 py-3.5 rounded-2xl border border-slate-300 bg-white text-xs sm:text-sm focus:outline-hidden focus:ring-2 focus:ring-[#0876C9] focus:border-[#0876C9] font-mono shadow-xs"
+                className="w-full ps-12 pe-4 py-4 rounded-2xl border border-[#E1E9F0] bg-[#F1F6FA] text-xs sm:text-sm focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#0876C9] focus:border-[#0876C9] font-mono shadow-2xs transition-colors"
               />
             </div>
             <button
               type="submit"
-              className="px-7 py-3.5 bg-gradient-to-r from-[#0876C9] to-[#0B3158] hover:from-sky-600 hover:to-blue-900 text-white text-xs sm:text-sm font-bold rounded-2xl transition-all shadow-md hover:shadow-sky-500/25 shrink-0 cursor-pointer active:scale-95"
+              className="px-8 py-4 bg-gradient-to-r from-[#0876C9] to-[#0B3158] hover:from-sky-600 hover:to-blue-900 text-white text-xs sm:text-sm font-bold rounded-2xl transition-all shadow-md hover:shadow-sky-500/25 shrink-0 cursor-pointer active:scale-95 flex items-center justify-center gap-2"
             >
-              {t.searchBtn}
+              <span>{t.searchBtn}</span>
             </button>
           </form>
 
@@ -103,7 +106,7 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
                 key={code}
                 type="button"
                 onClick={() => handleSampleClick(code)}
-                className="font-mono text-[#0876C9] hover:underline bg-white px-2.5 py-1 rounded-lg border border-slate-200 shadow-2xs cursor-pointer font-bold"
+                className="font-mono text-[#0876C9] hover:text-[#0B3158] hover:bg-white bg-[#F1F6FA] px-2.5 py-1 rounded-lg border border-[#E1E9F0] shadow-2xs cursor-pointer font-bold transition-colors"
               >
                 {code}
               </button>
@@ -115,9 +118,9 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
         {searched && (
           <div>
             {result ? (
-              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+              <div className="bg-white rounded-3xl border border-[#E1E9F0] shadow-sm overflow-hidden">
                 {/* Result Header */}
-                <div className="bg-[#0B3158] text-white p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="bg-gradient-to-r from-[#071B33] via-[#0B3158] to-[#0876C9] text-white p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
                     <span className="text-xs text-[#F39A16] font-bold uppercase tracking-wider block">
                       {t.resultFound}
@@ -128,15 +131,15 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
                   </div>
 
                   <div className="text-xs sm:text-end text-slate-300">
-                    <span className="block text-slate-400">{t.lastUpdate}</span>
-                    <span className="font-mono text-white">
+                    <span className="block text-slate-300">{t.lastUpdate}</span>
+                    <span className="font-mono text-white font-bold">
                       {new Date(result.lastUpdated).toLocaleString(lang === 'ar' ? 'ar-YE' : 'en-US')}
                     </span>
                   </div>
                 </div>
 
                 {/* Cargo Details Bar */}
-                <div className="p-6 grid grid-cols-2 sm:grid-cols-4 gap-4 bg-slate-50 border-b border-slate-200 text-xs">
+                <div className="p-6 grid grid-cols-2 sm:grid-cols-4 gap-4 bg-[#F1F6FA] border-b border-[#E1E9F0] text-xs">
                   <div>
                     <span className="text-slate-500 block">{t.client}</span>
                     <span className="font-semibold text-slate-900 mt-0.5 block">{result.customerName}</span>
@@ -161,7 +164,7 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
                     {t.statusTimeline}
                   </h4>
 
-                  <div className="space-y-6 relative before:absolute before:inset-0 before:start-3.5 before:w-0.5 before:bg-slate-200">
+                  <div className="space-y-6 relative before:absolute before:inset-0 before:start-3.5 before:w-0.5 before:bg-[#E1E9F0]">
                     {result.events.map((ev) => (
                       <div key={ev.id} className="relative flex items-start gap-4">
                         <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 z-10 ${
@@ -178,7 +181,7 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
                           )}
                         </div>
 
-                        <div className="flex-1 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <div className="flex-1 bg-[#F1F6FA] p-4 rounded-2xl border border-[#E1E9F0]">
                           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
                             <h5 className="text-xs sm:text-sm font-bold text-slate-900">
                               {lang === 'ar' ? ev.titleAr : ev.titleEn}
@@ -199,7 +202,7 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
                   </div>
 
                   {/* Actions Footer */}
-                  <div className="mt-8 pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+                  <div className="mt-8 pt-6 border-t border-[#E1E9F0] flex flex-wrap items-center justify-between gap-4">
                     <span className="text-xs text-slate-500">
                       {lang === 'ar' ? 'هل لديك أي استفسار حول هذه المعاملة؟' : 'Have any questions regarding this consignment?'}
                     </span>
@@ -212,7 +215,7 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg flex items-center gap-2 transition-colors"
+                      className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl flex items-center gap-2 transition-colors"
                     >
                       <MessageCircle className="w-4 h-4" />
                       <span>{t.contactOperations}</span>
@@ -224,7 +227,7 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
               </div>
             ) : (
               /* No Result State */
-              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center max-w-xl mx-auto">
+              <div className="bg-white border border-[#E1E9F0] rounded-3xl p-8 text-center max-w-xl mx-auto shadow-sm">
                 <AlertCircle className="w-10 h-10 text-amber-500 mx-auto mb-3" />
                 <h3 className="text-base font-bold text-[#0B3158]">
                   {t.noResultTitle}
@@ -236,7 +239,7 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
                 <div className="mt-6 flex flex-wrap justify-center gap-3">
                   <button
                     onClick={() => setInquiryModalOpen(true)}
-                    className="px-4 py-2.5 bg-[#0876C9] hover:bg-[#0B3158] text-white text-xs font-bold rounded-lg transition-colors cursor-pointer"
+                    className="px-5 py-2.5 bg-gradient-to-r from-[#0876C9] to-[#0B3158] hover:from-sky-600 hover:to-blue-900 text-white text-xs font-bold rounded-xl transition-all shadow-xs cursor-pointer active:scale-95"
                   >
                     {t.inquiryBtn}
                   </button>
@@ -247,7 +250,7 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2.5 bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5"
+                    className="px-5 py-2.5 bg-white border border-[#E1E9F0] text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-xl transition-all flex items-center gap-1.5 shadow-2xs"
                   >
                     <MessageCircle className="w-4 h-4 text-emerald-600" />
                     <span>{lang === 'ar' ? 'استفسار عبر واتساب' : 'Inquire via WhatsApp'}</span>
@@ -262,12 +265,12 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
 
       {/* Direct Inquiry Modal */}
       {inquiryModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+        <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl border border-[#E1E9F0] max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
             <h3 className="text-lg font-bold text-[#0B3158] mb-1">
               {lang === 'ar' ? 'استفسار مباشر عن شحنة' : 'Direct Consignment Inquiry'}
             </h3>
-            <p className="text-xs text-slate-500 mb-4">
+            <p className="text-xs text-slate-500 mb-5">
               {lang === 'ar' 
                 ? 'سيرد فريق العمليات عليك عبر الهاتف أو واتساب بتفاصيل الشحنة الدقيقة.' 
                 : 'Operations desk will review and contact you with shipment details.'}
@@ -281,7 +284,7 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleInquirySubmit} className="space-y-3 text-xs">
+              <form onSubmit={handleInquirySubmit} className="space-y-3.5 text-xs">
                 <div>
                   <label className="font-semibold text-slate-700 block mb-1">
                     {lang === 'ar' ? 'رقم الشحنة أو بوليصة الشحن' : 'Tracking / B/L Reference'}
@@ -291,7 +294,7 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     required
-                    className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#E1E9F0] bg-[#F1F6FA] font-mono focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#0876C9]"
                   />
                 </div>
 
@@ -304,7 +307,7 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
                     value={inquiryName}
                     onChange={(e) => setInquiryName(e.target.value)}
                     required
-                    className="w-full px-3 py-2 rounded-lg border border-slate-300"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#E1E9F0] bg-[#F1F6FA] focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#0876C9]"
                   />
                 </div>
 
@@ -318,7 +321,7 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
                     onChange={(e) => setInquiryPhone(e.target.value)}
                     required
                     placeholder="+967 783 339 992"
-                    className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#E1E9F0] bg-[#F1F6FA] font-mono focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#0876C9]"
                   />
                 </div>
 
@@ -330,7 +333,7 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
                     rows={2}
                     value={inquiryNotes}
                     onChange={(e) => setInquiryNotes(e.target.value)}
-                    className="w-full px-3 py-2 rounded-lg border border-slate-300"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#E1E9F0] bg-[#F1F6FA] focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#0876C9]"
                   />
                 </div>
 
@@ -338,13 +341,13 @@ export const TrackingSection: React.FC<TrackingSectionProps> = ({ lang, onNaviga
                   <button
                     type="button"
                     onClick={() => setInquiryModalOpen(false)}
-                    className="px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg"
+                    className="px-4 py-2.5 text-slate-600 hover:bg-slate-100 rounded-xl font-medium cursor-pointer"
                   >
                     {lang === 'ar' ? 'إلغاء' : 'Cancel'}
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-[#0876C9] hover:bg-[#0B3158] text-white font-bold rounded-lg"
+                    className="px-5 py-2.5 bg-gradient-to-r from-[#0876C9] to-[#0B3158] hover:from-sky-600 hover:to-blue-900 text-white font-bold rounded-xl shadow-xs cursor-pointer active:scale-95"
                   >
                     {lang === 'ar' ? 'إرسال الاستفسار' : 'Submit Inquiry'}
                   </button>

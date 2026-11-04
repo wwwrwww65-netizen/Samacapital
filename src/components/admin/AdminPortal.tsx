@@ -212,10 +212,10 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
   // Login Screen if not authenticated
   if (!isAuthenticated) {
     return (
-      <div className="min-h-[70vh] flex items-center justify-center py-16 px-4 bg-slate-100">
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-xl max-w-md w-full p-6 sm:p-8">
+      <div className="min-h-[75vh] flex items-center justify-center py-16 px-4 bg-[#F4F7FA]">
+        <div className="bg-white rounded-3xl border border-[#E1E9F0] shadow-xl max-w-md w-full p-6 sm:p-8">
           
-          <div className="w-12 h-12 rounded-xl bg-[#0B3158] text-white flex items-center justify-center mx-auto mb-4">
+          <div className="w-12 h-12 rounded-2xl bg-[#0B3158] text-white flex items-center justify-center mx-auto mb-4 shadow-sm">
             <Shield className="w-6 h-6 text-[#F39A16]" />
           </div>
 
@@ -227,16 +227,16 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
           </p>
 
           {/* Quick Demo Access Box */}
-          <div className="mb-6 p-3.5 rounded-xl bg-amber-50/80 border border-amber-200 text-xs text-amber-900">
-            <span className="font-bold block mb-1">🔑 {t.demoCredsPrompt}</span>
+          <div className="mb-6 p-4 rounded-2xl bg-[#F1F6FA] border border-[#E1E9F0] text-xs text-slate-800">
+            <span className="font-bold block mb-1 text-[#0876C9]">🔑 {t.demoCredsPrompt}</span>
             <div className="space-y-0.5 font-mono text-[11px]">
-              <div><span className="text-slate-600">User:</span> <strong>admin@samacapital.ye</strong></div>
-              <div><span className="text-slate-600">Password:</span> <strong>sama2026</strong></div>
+              <div><span className="text-slate-500">User:</span> <strong className="text-[#0B3158]">admin@samacapital.ye</strong></div>
+              <div><span className="text-slate-500">Password:</span> <strong className="text-[#0B3158]">sama2026</strong></div>
             </div>
           </div>
 
           {loginError && (
-            <div className="mb-4 p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
+            <div className="mb-4 p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
               <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{loginError}</span>
             </div>
@@ -252,7 +252,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono text-xs sm:text-sm"
+                className="w-full px-4 py-2.5 rounded-xl border border-[#E1E9F0] bg-[#F1F6FA] focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#0876C9] font-mono text-xs sm:text-sm"
               />
             </div>
 
@@ -265,7 +265,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono text-xs sm:text-sm"
+                className="w-full px-4 py-2.5 rounded-xl border border-[#E1E9F0] bg-[#F1F6FA] focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#0876C9] font-mono text-xs sm:text-sm"
               />
             </div>
 
@@ -282,7 +282,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
           <div className="mt-6 text-center">
             <button
               onClick={onNavigateHome}
-              className="text-xs text-slate-500 hover:text-slate-800 underline cursor-pointer"
+              className="text-xs text-slate-500 hover:text-[#0876C9] underline cursor-pointer"
             >
               {lang === 'ar' ? 'العودة للموقع الرئيسي' : 'Return to Main Website'}
             </button>
@@ -300,7 +300,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
   const unreadMessagesCount = messages.filter(m => m.status === 'UNREAD').length;
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-900 pb-16">
+    <div className="min-h-screen bg-[#F4F7FA] text-slate-900 pb-16">
       
       {/* Admin Header */}
       <header className="bg-[#0B3158] text-white border-b border-[#144272] sticky top-0 z-30">
@@ -384,22 +384,22 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
       {/* KPI Stats Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-2xs">
+          <div className="bg-white p-5 rounded-2xl border border-[#E1E9F0] shadow-2xs hover:shadow-sm transition-all">
             <span className="text-xs text-slate-500 font-medium block">{t.kpiTotalQuotes}</span>
             <span className="text-2xl font-black text-[#0B3158] font-mono mt-1 block">{totalQuotesCount}</span>
           </div>
 
-          <div className="bg-white p-5 rounded-xl border border-amber-200 bg-amber-50/30 shadow-2xs">
+          <div className="bg-white p-5 rounded-2xl border border-amber-200/80 bg-amber-50/30 shadow-2xs hover:shadow-sm transition-all">
             <span className="text-xs text-amber-700 font-medium block">{t.kpiNewQuotes}</span>
             <span className="text-2xl font-black text-amber-800 font-mono mt-1 block">{newQuotesCount}</span>
           </div>
 
-          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-2xs">
+          <div className="bg-white p-5 rounded-2xl border border-[#E1E9F0] shadow-2xs hover:shadow-sm transition-all">
             <span className="text-xs text-slate-500 font-medium block">{t.kpiActiveShipments}</span>
             <span className="text-2xl font-black text-emerald-700 font-mono mt-1 block">{inProgressCount}</span>
           </div>
 
-          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-2xs">
+          <div className="bg-white p-5 rounded-2xl border border-[#E1E9F0] shadow-2xs hover:shadow-sm transition-all">
             <span className="text-xs text-slate-500 font-medium block">{t.kpiMessages}</span>
             <span className="text-2xl font-black text-[#0876C9] font-mono mt-1 block">{unreadMessagesCount}</span>
           </div>
@@ -411,16 +411,16 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
           
           {/* Controls: Search, Filter, Export */}
-          <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
+          <div className="bg-white p-4 rounded-2xl border border-[#E1E9F0] shadow-2xs flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
             <div className="flex-1 flex flex-col sm:flex-row items-center gap-3 w-full">
               <div className="relative w-full sm:max-w-md">
-                <Search className="w-4 h-4 text-slate-400 absolute top-1/2 -translate-y-1/2 start-3" />
+                <Search className="w-4 h-4 text-slate-400 absolute top-1/2 -translate-y-1/2 start-3.5" />
                 <input
                   type="text"
                   value={quoteSearch}
                   onChange={(e) => setQuoteSearch(e.target.value)}
                   placeholder={t.searchPlaceholder}
-                  className="w-full ps-9 pe-3 py-2 text-xs rounded-lg border border-slate-300 bg-slate-50 focus:bg-white focus:outline-hidden"
+                  className="w-full ps-10 pe-3.5 py-2.5 text-xs rounded-xl border border-[#E1E9F0] bg-[#F1F6FA] focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#0876C9]"
                 />
               </div>
 
@@ -429,7 +429,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                 <select
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value)}
-                  className="text-xs py-2 px-3 rounded-lg border border-slate-300 bg-white"
+                  className="text-xs py-2.5 px-3.5 rounded-xl border border-[#E1E9F0] bg-[#F1F6FA] focus:bg-white focus:outline-hidden text-slate-800 font-medium"
                 >
                   <option value="ALL">{t.allStatuses}</option>
                   <option value="NEW">جديد (NEW)</option>
@@ -444,7 +444,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
 
             <button
               onClick={handleExportCsv}
-              className="w-full sm:w-auto px-4 py-2 bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold rounded-lg flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              className="w-full sm:w-auto px-5 py-2.5 bg-[#0B3158] hover:bg-[#0876C9] text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-xs active:scale-95"
             >
               <Download className="w-3.5 h-3.5" />
               <span>{t.exportCsv}</span>
@@ -452,20 +452,20 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
           </div>
 
           {/* Quotes Table */}
-          <div className="bg-white rounded-xl border border-slate-200 shadow-2xs overflow-hidden">
+          <div className="bg-white rounded-2xl border border-[#E1E9F0] shadow-2xs overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-start text-xs">
-                <thead className="bg-slate-50 border-b border-slate-200 text-slate-600 font-bold uppercase tracking-wider">
+                <thead className="bg-[#F1F6FA] border-b border-[#E1E9F0] text-slate-700 font-bold uppercase tracking-wider">
                   <tr>
-                    <th className="py-3 px-4 text-start">{t.tableRef}</th>
-                    <th className="py-3 px-4 text-start">{t.tableClient}</th>
-                    <th className="py-3 px-4 text-start">{t.tableService}</th>
-                    <th className="py-3 px-4 text-start">{t.tableDate}</th>
-                    <th className="py-3 px-4 text-start">{t.tableStatus}</th>
-                    <th className="py-3 px-4 text-center">{t.tableActions}</th>
+                    <th className="py-3.5 px-4 text-start">{t.tableRef}</th>
+                    <th className="py-3.5 px-4 text-start">{t.tableClient}</th>
+                    <th className="py-3.5 px-4 text-start">{t.tableService}</th>
+                    <th className="py-3.5 px-4 text-start">{t.tableDate}</th>
+                    <th className="py-3.5 px-4 text-start">{t.tableStatus}</th>
+                    <th className="py-3.5 px-4 text-center">{t.tableActions}</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-[#E1E9F0]/60">
                   {filteredQuotes.length === 0 ? (
                     <tr>
                       <td colSpan={6} className="py-8 text-center text-slate-500">
@@ -474,7 +474,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                     </tr>
                   ) : (
                     filteredQuotes.map((q) => (
-                      <tr key={q.id} className="hover:bg-slate-50/80 transition-colors">
+                      <tr key={q.id} className="hover:bg-[#F8FAFC] transition-colors">
                         <td className="py-3.5 px-4 font-mono font-bold text-[#0B3158]">
                           {q.referenceNumber}
                         </td>
@@ -495,7 +495,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                         <td className="py-3.5 px-4 text-center">
                           <button
                             onClick={() => handleOpenQuoteDrawer(q)}
-                            className="px-3 py-1.5 rounded-lg bg-[#0876C9] hover:bg-[#0B3158] text-white font-medium text-xs transition-colors cursor-pointer inline-flex items-center gap-1"
+                            className="px-3.5 py-1.5 rounded-xl bg-[#0876C9] hover:bg-[#0B3158] text-white font-medium text-xs transition-colors cursor-pointer inline-flex items-center gap-1.5 shadow-2xs"
                           >
                             <Eye className="w-3.5 h-3.5" />
                             <span>{t.viewDetails}</span>
@@ -517,13 +517,13 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
           <div className="space-y-4">
             {messages.length === 0 ? (
-              <div className="bg-white p-8 rounded-xl border border-slate-200 text-center text-slate-500 text-xs">
+              <div className="bg-white p-8 rounded-2xl border border-[#E1E9F0] text-center text-slate-500 text-xs">
                 {lang === 'ar' ? 'لا توجد رسائل واردة حالياً.' : 'No messages in inbox.'}
               </div>
             ) : (
               messages.map((msg) => (
-                <div key={msg.id} className="bg-white p-6 rounded-xl border border-slate-200 shadow-2xs space-y-3">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                <div key={msg.id} className="bg-white p-6 rounded-2xl border border-[#E1E9F0] shadow-2xs space-y-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E1E9F0]/70 pb-3">
                     <div>
                       <h4 className="text-sm font-bold text-[#0B3158]">{msg.subject}</h4>
                       <div className="flex items-center gap-3 text-xs text-slate-500 mt-1">
@@ -550,19 +550,19 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                             AppStore.updateMessageStatus(msg.id, 'REPLIED');
                             loadData();
                           }}
-                          className="px-2.5 py-1 bg-emerald-50 text-emerald-700 rounded text-xs font-semibold hover:bg-emerald-100 cursor-pointer"
+                          className="px-3 py-1 bg-emerald-50 text-emerald-700 rounded-lg text-xs font-semibold hover:bg-emerald-100 cursor-pointer border border-emerald-200"
                         >
                           {t.markReplied}
                         </button>
                       ) : (
-                        <span className="text-slate-500 bg-slate-100 px-2 py-0.5 rounded text-xs">
+                        <span className="text-slate-500 bg-[#F1F6FA] border border-[#E1E9F0] px-2.5 py-0.5 rounded-lg text-xs">
                           {msg.status}
                         </span>
                       )}
                     </div>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-slate-50 p-4 rounded-lg">
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-[#F1F6FA] p-4 rounded-xl border border-[#E1E9F0]">
                     {msg.message}
                   </p>
                 </div>
@@ -575,7 +575,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
       {/* TAB 3: COMPANY SETTINGS */}
       {activeTab === 'settings' && (
         <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-          <div className="bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-2xs">
+          <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#E1E9F0] shadow-2xs">
             <h3 className="text-base font-bold text-[#0B3158] mb-1">
               {lang === 'ar' ? 'تعديل بيانات وإعدادات الشركة' : 'Edit Company Coordinates & Settings'}
             </h3>
@@ -586,7 +586,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
             </p>
 
             {settingsSaved && (
-              <div className="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2">
+              <div className="mb-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>{lang === 'ar' ? 'تم حفظ التحديثات بنجاح!' : 'Settings updated successfully!'}</span>
               </div>
@@ -603,7 +603,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                     value={formSettings.phoneYemen}
                     onChange={(e) => setFormSettings({ ...formSettings, phoneYemen: e.target.value })}
                     required
-                    className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#E1E9F0] bg-[#F1F6FA] focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#0876C9] font-mono"
                   />
                 </div>
 
@@ -616,7 +616,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                     value={formSettings.phoneChina}
                     onChange={(e) => setFormSettings({ ...formSettings, phoneChina: e.target.value })}
                     required
-                    className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#E1E9F0] bg-[#F1F6FA] focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#0876C9] font-mono"
                   />
                 </div>
               </div>
@@ -630,7 +630,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                   value={formSettings.addressAr}
                   onChange={(e) => setFormSettings({ ...formSettings, addressAr: e.target.value })}
                   required
-                  className="w-full px-3 py-2 rounded-lg border border-slate-300"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E1E9F0] bg-[#F1F6FA] focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#0876C9]"
                 />
               </div>
 
@@ -642,14 +642,14 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                   type="text"
                   value={formSettings.announcementAr}
                   onChange={(e) => setFormSettings({ ...formSettings, announcementAr: e.target.value })}
-                  className="w-full px-3 py-2 rounded-lg border border-slate-300"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E1E9F0] bg-[#F1F6FA] focus:bg-white focus:outline-hidden focus:ring-2 focus:ring-[#0876C9]"
                 />
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex justify-end">
+              <div className="pt-4 border-t border-[#E1E9F0] flex justify-end">
                 <button
                   type="submit"
-                  className="px-6 py-2.5 bg-[#0876C9] hover:bg-[#0B3158] text-white font-bold rounded-xl flex items-center gap-2 cursor-pointer transition-colors"
+                  className="px-6 py-2.5 bg-[#0876C9] hover:bg-[#0B3158] text-white font-bold rounded-xl flex items-center gap-2 cursor-pointer transition-colors shadow-xs active:scale-95"
                 >
                   <Save className="w-4 h-4" />
                   <span>{lang === 'ar' ? 'حفظ التعديلات المركزية' : 'Save Settings'}</span>
@@ -663,15 +663,15 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
       {/* TAB 4: AUDIT LOG */}
       {activeTab === 'audit' && (
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-          <div className="bg-white rounded-xl border border-slate-200 shadow-2xs overflow-hidden">
-            <div className="p-4 bg-slate-50 border-b border-slate-200">
+          <div className="bg-white rounded-2xl border border-[#E1E9F0] shadow-2xs overflow-hidden">
+            <div className="p-4 bg-[#F1F6FA] border-b border-[#E1E9F0]">
               <h3 className="text-xs font-bold text-[#0B3158] uppercase tracking-wider">
                 {lang === 'ar' ? 'سجل العمليات الإدارية والتدقيق الأمني' : 'Administrative Audit Trail & Security Logs'}
               </h3>
             </div>
-            <div className="divide-y divide-slate-100">
+            <div className="divide-y divide-[#E1E9F0]/60">
               {auditLogs.map((log) => (
-                <div key={log.id} className="p-4 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div key={log.id} className="p-4 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-[#F8FAFC]">
                   <div>
                     <span className="font-bold text-[#0B3158] block">{log.action}</span>
                     <span className="text-slate-600 mt-0.5 block">{log.details}</span>
@@ -690,18 +690,18 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
       {/* Quote Details Drawer / Modal */}
       {selectedQuote && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+          <div className="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto border border-[#E1E9F0]">
             
             <button
               onClick={() => setSelectedQuote(null)}
-              className="absolute top-4 right-4 rtl:right-auto rtl:left-4 p-2 rounded-full hover:bg-slate-100 text-slate-500"
+              className="absolute top-5 right-5 rtl:right-auto rtl:left-5 p-2 rounded-full hover:bg-[#F1F6FA] text-slate-500 cursor-pointer"
               aria-label="Close"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-3 pb-4 border-b border-slate-200 mb-6">
-              <div className="p-2.5 rounded-xl bg-sky-50 text-[#0876C9]">
+            <div className="flex items-center gap-3 pb-4 border-b border-[#E1E9F0] mb-6">
+              <div className="p-2.5 rounded-2xl bg-[#F1F6FA] text-[#0876C9] border border-[#E1E9F0]">
                 <FileText className="w-6 h-6" />
               </div>
               <div>
@@ -716,8 +716,8 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
               
               {/* Client & Cargo Info */}
               <div className="space-y-4">
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
-                  <h4 className="font-bold text-[#0B3158] text-xs uppercase border-b border-slate-200 pb-1">
+                <div className="p-4 rounded-2xl bg-[#F1F6FA] border border-[#E1E9F0] space-y-2">
+                  <h4 className="font-bold text-[#0B3158] text-xs uppercase border-b border-[#E1E9F0] pb-1.5">
                     {lang === 'ar' ? 'بيانات العميل' : 'Client Profile'}
                   </h4>
                   <div><span className="text-slate-500">الاسم:</span> <strong>{selectedQuote.clientName}</strong></div>
@@ -731,8 +731,8 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                   <div><span className="text-slate-500">الوسيلة المفضلة:</span> {selectedQuote.preferredContact}</div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
-                  <h4 className="font-bold text-[#0B3158] text-xs uppercase border-b border-slate-200 pb-1">
+                <div className="p-4 rounded-2xl bg-[#F1F6FA] border border-[#E1E9F0] space-y-2">
+                  <h4 className="font-bold text-[#0B3158] text-xs uppercase border-b border-[#E1E9F0] pb-1.5">
                     {t.cargoDetails}
                   </h4>
                   <div><span className="text-slate-500">الخدمة:</span> <strong>{selectedQuote.serviceName}</strong></div>
@@ -750,8 +750,8 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
 
               {/* Status & Operational Actions */}
               <div className="space-y-4">
-                <div className="p-4 rounded-xl bg-sky-50/50 border border-sky-100 space-y-3">
-                  <h4 className="font-bold text-[#0B3158] text-xs uppercase border-b border-sky-200 pb-1">
+                <div className="p-4 rounded-2xl bg-[#F1F6FA] border border-[#E1E9F0] space-y-3">
+                  <h4 className="font-bold text-[#0B3158] text-xs uppercase border-b border-[#E1E9F0] pb-1.5">
                     {lang === 'ar' ? 'إجراءات التسعير والتشغيل' : 'Operational Workflow'}
                   </h4>
 
@@ -762,7 +762,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                     <select
                       value={editStatus}
                       onChange={(e) => setEditStatus(e.target.value as QuoteStatus)}
-                      className="w-full px-3 py-2 rounded-lg border border-slate-300 bg-white font-semibold text-xs"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#E1E9F0] bg-white font-semibold text-xs focus:ring-2 focus:ring-[#0876C9] focus:outline-hidden"
                     >
                       <option value="NEW">جديد (NEW)</option>
                       <option value="REVIEWING">قيد المراجعة (REVIEWING)</option>
@@ -785,7 +785,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                       value={editQuoteAmount}
                       onChange={(e) => setEditQuoteAmount(e.target.value)}
                       placeholder="e.g. $4,200 شامل الشحن والتخليص"
-                      className="w-full px-3 py-2 rounded-lg border border-slate-300 bg-white font-mono text-xs"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#E1E9F0] bg-white font-mono text-xs focus:ring-2 focus:ring-[#0876C9] focus:outline-hidden"
                     />
                   </div>
 
@@ -798,21 +798,21 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                       value={editAssignedTo}
                       onChange={(e) => setEditAssignedTo(e.target.value)}
                       placeholder="اسم الموظف أو مسؤول الشحن"
-                      className="w-full px-3 py-2 rounded-lg border border-slate-300 bg-white text-xs"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#E1E9F0] bg-white text-xs focus:ring-2 focus:ring-[#0876C9] focus:outline-hidden"
                     />
                   </div>
                 </div>
 
                 {/* Internal Notes */}
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
+                <div className="p-4 rounded-2xl bg-[#F1F6FA] border border-[#E1E9F0] space-y-2">
                   <h4 className="font-bold text-[#0B3158] text-xs uppercase">
                     {t.internalNotesTitle}
                   </h4>
                   
-                  <div className="max-h-28 overflow-y-auto space-y-1.5 text-[11px] text-slate-600 bg-white p-2.5 rounded-lg border border-slate-200">
+                  <div className="max-h-28 overflow-y-auto space-y-1.5 text-[11px] text-slate-600 bg-white p-3 rounded-xl border border-[#E1E9F0]">
                     {selectedQuote.internalNotes && selectedQuote.internalNotes.length > 0 ? (
                       selectedQuote.internalNotes.map((note, idx) => (
-                        <div key={idx} className="pb-1 border-b border-slate-100 last:border-b-0">
+                        <div key={idx} className="pb-1 border-b border-[#E1E9F0] last:border-b-0">
                           {note}
                         </div>
                       ))
@@ -827,7 +827,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                       value={newInternalNote}
                       onChange={(e) => setNewInternalNote(e.target.value)}
                       placeholder={t.addNotePlaceholder}
-                      className="w-full px-3 py-2 rounded-lg border border-slate-300 bg-white text-xs"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#E1E9F0] bg-white text-xs focus:ring-2 focus:ring-[#0876C9] focus:outline-hidden"
                     />
                   </div>
                 </div>
@@ -836,14 +836,14 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
 
             </div>
 
-            <div className="mt-8 pt-4 border-t border-slate-200 flex items-center justify-between">
+            <div className="mt-8 pt-4 border-t border-[#E1E9F0] flex items-center justify-between">
               <a
                 href={`https://wa.me/${selectedQuote.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
                   `السلام عليكم أخي الكريم ${selectedQuote.clientName}، بخصوص طلب التسعير برقم ${selectedQuote.referenceNumber} لدى سما كابيتال:`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5"
+                className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 shadow-2xs"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>{lang === 'ar' ? 'مراسلة العميل واتساب' : 'WhatsApp Client'}</span>
@@ -853,7 +853,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                 <button
                   type="button"
                   onClick={() => setSelectedQuote(null)}
-                  className="px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-100 text-xs"
+                  className="px-4 py-2.5 rounded-xl text-slate-600 hover:bg-[#F1F6FA] text-xs font-medium cursor-pointer"
                 >
                   {lang === 'ar' ? 'إغلاق' : 'Close'}
                 </button>
@@ -861,7 +861,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                 <button
                   type="button"
                   onClick={handleSaveQuoteChanges}
-                  className="px-5 py-2 rounded-lg bg-[#0876C9] hover:bg-[#0B3158] text-white font-bold text-xs shadow-xs cursor-pointer"
+                  className="px-5 py-2.5 rounded-xl bg-[#0876C9] hover:bg-[#0B3158] text-white font-bold text-xs shadow-xs cursor-pointer active:scale-95"
                 >
                   {t.saveChangesBtn}
                 </button>

@@ -79,12 +79,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 sm:pt-20 sm:pb-24">
         
-        {/* Top Operational Status Ticker Strip */}
-        <div className="inline-flex max-w-full items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs text-sky-200 mb-8 shadow-xs overflow-hidden">
+        {/* Top Operational Status Ticker Strip - Unboxed Editorial Kicker */}
+        <div className="flex flex-wrap items-center gap-2 text-xs text-sky-200 mb-8 font-medium">
           <span className="w-2 h-2 rounded-full bg-[#F39A16] shrink-0" />
-          <span className="font-semibold text-white shrink-0">SAMA CAPITAL</span>
-          <span className="text-slate-400 shrink-0">·</span>
-          <span className="truncate sm:whitespace-normal">{lang === 'ar' ? 'رحلات بحرية وجوية منتظمة بين موانئ الصين وكافة المحافظات اليمنية' : 'Regular Sea & Air rotations linking China hubs to all Yemeni cities'}</span>
+          <span className="font-extrabold text-white tracking-wider">SAMA CAPITAL</span>
+          <span className="text-slate-400">·</span>
+          <span className="text-sky-200/90">{lang === 'ar' ? 'رحلات بحرية وجوية منتظمة بين موانئ الصين وكافة المحافظات اليمنية' : 'Regular Sea & Air rotations linking China hubs to all Yemeni cities'}</span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -157,33 +157,33 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           {/* Interactive Modern Freight Control Console in Hero (5 cols) */}
           <div className="lg:col-span-5">
-            <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-5 sm:p-6 text-slate-900">
+            <div className="bg-white/98 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/40 p-6 sm:p-7 text-slate-900">
               
               {/* Tab Header: Fast Quote vs Track */}
-              <div className="flex items-center p-1 bg-slate-100 rounded-xl mb-5">
+              <div className="flex items-center p-1 bg-slate-100 rounded-2xl mb-6">
                 <button
                   type="button"
                   onClick={() => setActiveTab('quote')}
-                  className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                  className={`flex-1 py-2.5 text-xs font-bold rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2 ${
                     activeTab === 'quote'
                       ? 'bg-white text-[#0B3158] shadow-xs'
                       : 'text-slate-500 hover:text-slate-900'
                   }`}
                 >
-                  <Ship className="w-3.5 h-3.5 text-[#0876C9]" />
+                  <Ship className="w-4 h-4 text-[#0876C9]" />
                   <span>{lang === 'ar' ? 'طلب تسعير مسار فوري' : 'Instant Corridor Quote'}</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setActiveTab('track')}
-                  className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                  className={`flex-1 py-2.5 text-xs font-bold rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2 ${
                     activeTab === 'track'
                       ? 'bg-white text-[#0B3158] shadow-xs'
                       : 'text-slate-500 hover:text-slate-900'
                   }`}
                 >
-                  <Search className="w-3.5 h-3.5 text-[#F39A16]" />
+                  <Search className="w-4 h-4 text-[#F39A16]" />
                   <span>{lang === 'ar' ? 'تتبع شحنة / بوليصة' : 'Track Waybill / Quote'}</span>
                 </button>
               </div>
@@ -192,13 +192,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {activeTab === 'quote' && (
                 <form onSubmit={handleQuickQuoteSubmit} className="space-y-4 text-xs">
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-700 mb-1">
+                    <label className="block text-[11px] font-bold text-slate-700 mb-1.5">
                       {lang === 'ar' ? 'ميناء أو مركز الإرسال (الصين):' : 'Origin Gateway (China):'}
                     </label>
                     <select
                       value={heroOrigin}
                       onChange={(e) => setHeroOrigin(e.target.value)}
-                      className="w-full px-3 py-2.5 rounded-lg border border-slate-300 bg-white font-medium text-slate-900 focus:ring-2 focus:ring-[#0876C9] focus:outline-hidden"
+                      className="w-full px-3.5 py-3 rounded-xl border border-slate-200 bg-slate-50 font-medium text-slate-900 focus:bg-white focus:ring-2 focus:ring-[#0876C9] focus:outline-hidden transition-colors"
                     >
                       <option value="نينغبو (Ningbo)">نينغبو — ميناء الحاويات الرئيسي (Ningbo)</option>
                       <option value="إيوو (Yiwu)">إيوو — مركز التجميع والشحن الجزئي (Yiwu)</option>
@@ -209,13 +209,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-700 mb-1">
+                    <label className="block text-[11px] font-bold text-slate-700 mb-1.5">
                       {lang === 'ar' ? 'مدينة وميناء الوصول (اليمن):' : 'Destination Hub (Yemen):'}
                     </label>
                     <select
                       value={heroDestination}
                       onChange={(e) => setHeroDestination(e.target.value)}
-                      className="w-full px-3 py-2.5 rounded-lg border border-slate-300 bg-white font-medium text-slate-900 focus:ring-2 focus:ring-[#0876C9] focus:outline-hidden"
+                      className="w-full px-3.5 py-3 rounded-xl border border-slate-200 bg-slate-50 font-medium text-slate-900 focus:bg-white focus:ring-2 focus:ring-[#0876C9] focus:outline-hidden transition-colors"
                     >
                       <option value="صنعاء (Sana'a)">صنعاء — المركز اللوجستي دار سلم</option>
                       <option value="عدن (Aden)">عدن — ميناء الحاويات والتخليص</option>
@@ -230,30 +230,30 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     <label className="block text-[11px] font-bold text-slate-700 mb-1.5">
                       {lang === 'ar' ? 'نوع وسيلة الشحن:' : 'Freight Mode:'}
                     </label>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-2 gap-2.5">
                       <button
                         type="button"
                         onClick={() => setHeroMode('sea')}
-                        className={`p-2 rounded-lg border flex items-center justify-center gap-2 cursor-pointer transition-colors ${
+                        className={`p-3 rounded-xl border flex items-center justify-center gap-2 cursor-pointer transition-colors ${
                           heroMode === 'sea'
-                            ? 'border-[#0876C9] bg-sky-50 text-[#0876C9] font-bold'
+                            ? 'border-[#0876C9] bg-sky-50 text-[#0876C9] font-bold shadow-2xs'
                             : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                         }`}
                       >
-                        <Ship className="w-3.5 h-3.5" />
+                        <Ship className="w-4 h-4" />
                         <span>{lang === 'ar' ? 'شحن بحري (حاويات/LCL)' : 'Ocean Freight'}</span>
                       </button>
 
                       <button
                         type="button"
                         onClick={() => setHeroMode('air')}
-                        className={`p-2 rounded-lg border flex items-center justify-center gap-2 cursor-pointer transition-colors ${
+                        className={`p-3 rounded-xl border flex items-center justify-center gap-2 cursor-pointer transition-colors ${
                           heroMode === 'air'
-                            ? 'border-[#0876C9] bg-sky-50 text-[#0876C9] font-bold'
+                            ? 'border-[#0876C9] bg-sky-50 text-[#0876C9] font-bold shadow-2xs'
                             : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                         }`}
                       >
-                        <Plane className="w-3.5 h-3.5" />
+                        <Plane className="w-4 h-4" />
                         <span>{lang === 'ar' ? 'شحن جوي سريع' : 'Air Cargo'}</span>
                       </button>
                     </div>
@@ -262,7 +262,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full py-3 bg-[#0876C9] hover:bg-[#0B3158] text-white font-bold rounded-xl shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer active:scale-98"
+                      className="w-full py-3.5 bg-[#0876C9] hover:bg-[#0B3158] text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98"
                     >
                       <span>{lang === 'ar' ? 'تجهيز عرض سعر لهذا المسار' : 'Get Rate for This Corridor'}</span>
                       <ArrowIcon className="w-4 h-4" />
@@ -275,7 +275,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {activeTab === 'track' && (
                 <form onSubmit={handleQuickTrackSubmit} className="space-y-4 text-xs">
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-700 mb-1">
+                    <label className="block text-[11px] font-bold text-slate-700 mb-1.5">
                       {lang === 'ar' ? 'رقم الشحنة أو الرقم المرجعي:' : 'Tracking or Reference Number:'}
                     </label>
                     <input
@@ -283,11 +283,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                       value={quickTrackCode}
                       onChange={(e) => setQuickTrackCode(e.target.value)}
                       placeholder="مثال: SAMA-2026-N492 أو SAMA-TRK-78901"
-                      className="w-full px-3 py-2.5 rounded-lg border border-slate-300 font-mono text-xs focus:ring-2 focus:ring-[#0876C9]"
+                      className="w-full px-3.5 py-3 rounded-xl border border-slate-200 bg-slate-50 font-mono text-xs focus:bg-white focus:ring-2 focus:ring-[#0876C9] transition-colors"
                     />
                   </div>
 
-                  <div className="p-3 bg-slate-50 rounded-lg border border-slate-100 text-[11px] text-slate-600">
+                  <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-100 text-[11px] text-slate-600 leading-relaxed">
                     <p>
                       {lang === 'ar' 
                         ? 'نظام التتبع المعتمد يتيح لك الاطلاع على التحديثات التشغيلية الحقيقية والمراحل الجمركية المعتمدة.' 
@@ -298,7 +298,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full py-3 bg-[#0B3158] hover:bg-[#0876C9] text-white font-bold rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full py-3.5 bg-[#0B3158] hover:bg-[#0876C9] text-white font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98"
                     >
                       <Search className="w-4 h-4 text-[#F39A16]" />
                       <span>{lang === 'ar' ? 'استعلام وتتبع الآن' : 'Track Consignment Now'}</span>
@@ -308,7 +308,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               )}
 
               {/* Bottom quick contact phone snippet */}
-              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+              <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
                 <span>{lang === 'ar' ? 'مكتب صنعاء (دار سلم):' : 'Sana\'a Office:'}</span>
                 <a href="tel:+967783339992" className="font-mono text-[#0876C9] font-bold" dir="ltr">
                   +967 783 339 992

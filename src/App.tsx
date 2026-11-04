@@ -84,7 +84,7 @@ export default function App() {
   const isRtl = lang === 'ar';
 
   return (
-    <div className={`min-h-screen w-full max-w-full overflow-x-hidden flex flex-col bg-slate-50 text-slate-900 ${isRtl ? 'text-right' : 'text-left'}`}>
+    <div className={`min-h-screen w-full max-w-full overflow-x-hidden flex flex-col bg-[#F4F7FA] text-slate-900 ${isRtl ? 'text-right' : 'text-left'}`}>
       
       {/* Top Bar with Contacts & Language Toggle */}
       {currentView !== 'admin' && (
@@ -145,7 +145,7 @@ export default function App() {
             />
 
             {/* Commercial Importer Volume & CBM Calculator */}
-            <section className="py-16 bg-slate-100/70 border-y border-slate-200">
+            <section className="py-16 bg-[#F4F7FA] border-y border-[#E1E9F0]">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <VolumeCalculator 
                   lang={lang} 
@@ -197,9 +197,9 @@ export default function App() {
 
         {/* VIEW: SERVICES */}
         {currentView === 'services' && (
-          <div className="py-8 bg-slate-50">
+          <div className="py-10 bg-[#EAF2F8] min-h-[85vh]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-              <span className="text-xs font-bold text-[#0876C9] uppercase tracking-wider block">
+              <span className="text-xs font-bold text-[#0876C9] uppercase tracking-wider block mb-1">
                 {lang === 'ar' ? 'سما كابيتال — حلول لوجستية' : 'Sama Capital — Logistics Solutions'}
               </span>
               <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0B3158]">
@@ -216,7 +216,7 @@ export default function App() {
 
         {/* VIEW: CORRIDORS */}
         {currentView === 'corridors' && (
-          <div className="py-8 bg-white">
+          <div className="py-10 bg-[#F4F7FA] min-h-[85vh]">
             <ShippingRoutesMatrix 
               lang={lang} 
               onSelectRouteForQuote={handleQuickRouteSelect}
@@ -226,7 +226,7 @@ export default function App() {
 
         {/* VIEW: CALCULATOR */}
         {currentView === 'calculator' && (
-          <div className="py-12 bg-slate-50">
+          <div className="py-12 bg-[#EAF2F8] min-h-[85vh]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <VolumeCalculator 
                 lang={lang} 
@@ -238,7 +238,7 @@ export default function App() {
 
         {/* VIEW: HOW IT WORKS */}
         {currentView === 'how-it-works' && (
-          <div className="py-8 bg-white">
+          <div className="py-10 bg-[#F4F7FA] min-h-[85vh]">
             <HowItWorksSection 
               lang={lang} 
               onNavigate={handleNavigate} 
@@ -248,7 +248,7 @@ export default function App() {
 
         {/* VIEW: DESTINATIONS */}
         {currentView === 'destinations' && (
-          <div className="py-8 bg-slate-50">
+          <div className="py-10 bg-[#EAF2F8] min-h-[85vh]">
             <DestinationsSection 
               lang={lang} 
             />
@@ -257,22 +257,24 @@ export default function App() {
 
         {/* VIEW: QUOTE REQUEST FORM */}
         {currentView === 'quote' && (
-          <QuoteRequestForm 
-            lang={lang} 
-            preSelectedServiceId={selectedServiceForQuote} 
-            whatsappNumber={settings.whatsappNumber} 
-            initialOrigin={quotePrefill.origin}
-            initialDestination={quotePrefill.destination}
-            initialShippingType={quotePrefill.mode}
-            initialVolumeCbm={quotePrefill.volumeCbm}
-            initialWeightKg={quotePrefill.weightKg}
-            initialNotes={quotePrefill.notes}
-          />
+          <div className="py-10 bg-[#F4F7FA] min-h-[85vh]">
+            <QuoteRequestForm 
+              lang={lang} 
+              preSelectedServiceId={selectedServiceForQuote} 
+              whatsappNumber={settings.whatsappNumber} 
+              initialOrigin={quotePrefill.origin}
+              initialDestination={quotePrefill.destination}
+              initialShippingType={quotePrefill.mode}
+              initialVolumeCbm={quotePrefill.volumeCbm}
+              initialWeightKg={quotePrefill.weightKg}
+              initialNotes={quotePrefill.notes}
+            />
+          </div>
         )}
 
         {/* VIEW: TRACKING */}
         {currentView === 'track' && (
-          <div className="py-8 bg-white">
+          <div className="py-10 bg-[#F4F7FA] min-h-[85vh]">
             <TrackingSection 
               lang={lang} 
               onNavigate={handleNavigate} 
@@ -283,29 +285,37 @@ export default function App() {
 
         {/* VIEW: FAQ */}
         {currentView === 'faq' && (
-          <FaqSection 
-            lang={lang} 
-            onNavigate={handleNavigate} 
-            whatsappNumber={settings.whatsappNumber} 
-          />
+          <div className="py-6 bg-[#EAF2F8] min-h-[85vh]">
+            <FaqSection 
+              lang={lang} 
+              onNavigate={handleNavigate} 
+              whatsappNumber={settings.whatsappNumber} 
+            />
+          </div>
         )}
 
         {/* VIEW: CONTACT */}
         {currentView === 'contact' && (
-          <ContactSection 
-            lang={lang} 
-            settings={settings} 
-          />
+          <div className="py-6 bg-[#F4F7FA] min-h-[85vh]">
+            <ContactSection 
+              lang={lang} 
+              settings={settings} 
+            />
+          </div>
         )}
 
         {/* VIEW: PRIVACY */}
         {currentView === 'privacy' && (
-          <PrivacyPolicyView lang={lang} />
+          <div className="py-10 bg-[#F4F7FA] min-h-[85vh]">
+            <PrivacyPolicyView lang={lang} />
+          </div>
         )}
 
         {/* VIEW: TERMS */}
         {currentView === 'terms' && (
-          <TermsOfServiceView lang={lang} />
+          <div className="py-10 bg-[#F4F7FA] min-h-[85vh]">
+            <TermsOfServiceView lang={lang} />
+          </div>
         )}
 
         {/* VIEW: ADMIN PORTAL */}
