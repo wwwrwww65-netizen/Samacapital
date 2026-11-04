@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Alexandria', 'Cairo', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --color-brand-blue: #0876c9;
+  --color-brand-dark: #071b33;
+  --color-brand-navy: #0b3158;
+  --color-brand-orange: #f39a16;
+}
+
+[dir="rtl"], [dir="rtl"] input, [dir="rtl"] button, [dir="rtl"] select, [dir="rtl"] textarea {
+  font-family: 'Alexandria', 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+[dir="ltr"], [dir="ltr"] input, [dir="ltr"] button, [dir="ltr"] select, [dir="ltr"] textarea {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+body {
+  font-family: 'Alexandria', 'Cairo', 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: #f8fafc;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  position: relative;
+}
+
+#root {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+/* Modern metallic corrugated container effect */
+.corrugated-container {
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.08) 8px,
+    rgba(0, 0, 0, 0.12) 8px,
+    rgba(0, 0, 0, 0.12) 16px
+  );
+}
+
+/* Tactile card & glow effects */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.dark-glass-panel {
+  background: rgba(7, 27, 51, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

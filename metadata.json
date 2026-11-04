@@ -1,0 +1,6 @@
+{
+  "name": "سما كابيتال | SAMA CAPITAL - الاستيراد والشحن والتخليص الجمركي",
+  "description": "الموقع الرسمي لشركة سما كابيتال (SAMA CAPITAL) لخدمات الاستيراد والشحن البحري والجوي والتخليص الجمركي والنقل إلى أنحاء اليمن والصين.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
