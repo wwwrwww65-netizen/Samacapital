@@ -18,8 +18,9 @@ import { FaqSection } from './components/sections/FaqSection';
 import { QuoteRequestForm } from './components/forms/QuoteRequestForm';
 import { ContactSection } from './components/forms/ContactSection';
 import { AboutView, PrivacyPolicyView, TermsOfServiceView } from './components/sections/LegalViews';
-import { AdminPortal } from './components/admin/AdminPortal';
 import { MobileBottomNav } from './components/layout/MobileBottomNav';
+
+const AdminPortal = React.lazy(() => import('./components/admin/AdminPortal').then(m => ({ default: m.AdminPortal })));
 
 export default function App() {
   const [lang, setLang] = useState<Language>('ar');
@@ -320,12 +321,18 @@ export default function App() {
 
         {/* VIEW: ADMIN PORTAL */}
         {currentView === 'admin' && (
-          <AdminPortal 
-            lang={lang} 
-            onNavigateHome={() => handleNavigate('home')} 
-            settings={settings}
-            onUpdateSettings={(newSettings) => setSettings(newSettings)}
-          />
+          <React.Suspense fallback={
+            <div className="min-h-[70vh] flex items-center justify-center p-8">
+              <div className="w-8 h-8 border-3 border-[#0876C9] border-t-transparent rounded-full animate-spin" />
+            </div>
+          }>
+            <AdminPortal 
+              lang={lang} 
+              onNavigateHome={() => handleNavigate('home')} 
+              settings={settings}
+              onUpdateSettings={(newSettings) => setSettings(newSettings)}
+            />
+          </React.Suspense>
         )}
 
       </main>

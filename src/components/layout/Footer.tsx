@@ -26,11 +26,13 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, settings }) =>
           {/* Col 1: Brand & Official Mission */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-white/10 p-1 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center shrink-0 shadow-sm">
                 <img 
                   src={IMAGES.logo} 
-                  alt="Sama Capital" 
-                  className="w-full h-full object-cover rounded" 
+                  alt="سما كابيتال | SAMA CAPITAL" 
+                  className="w-full h-full object-contain" 
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div>

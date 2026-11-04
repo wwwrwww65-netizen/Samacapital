@@ -43,11 +43,11 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, currentView, onNavigate })
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-3 text-start group cursor-pointer focus:outline-hidden"
           >
-            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#0B3158] to-[#0876C9] p-0.5 flex items-center justify-center shadow-xs overflow-hidden shrink-0">
+            <div className="h-12 sm:h-14 w-12 sm:w-14 rounded-xl bg-white border border-slate-200 shadow-xs p-1 flex items-center justify-center overflow-hidden shrink-0 group-hover:border-[#0876C9]/40 transition-colors">
               <img 
                 src={IMAGES.logo} 
-                alt="Sama Capital Logo" 
-                className="w-full h-full object-cover rounded-md"
+                alt="سما كابيتال | SAMA CAPITAL" 
+                className="w-full h-full object-contain"
                 loading="eager"
                 decoding="sync"
                 onError={(e) => {
@@ -57,7 +57,7 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, currentView, onNavigate })
                   if (fallback) fallback.classList.remove('hidden');
                 }}
               />
-              <div className="hidden text-white font-bold text-xs items-center justify-center">
+              <div className="hidden text-[#0B3158] font-bold text-xs items-center justify-center">
                 SC
               </div>
             </div>
